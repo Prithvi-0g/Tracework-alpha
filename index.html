@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraceWorks — Custom PCB Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a class="nav-logo" href="#" data-nav="home">
+    <img src="assets/logo.png" alt="TraceWorks" class="nav-logo-img">
+    TraceWorks
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#" data-nav="home">Home</a>
+    <a href="#" data-nav="services">Services</a>
+    <a href="#" data-nav="process">Process</a>
+    <a href="#" data-nav="pricing">Pricing</a>
+    <a href="#" data-nav="gallery">Gallery</a>
+  </div>
+  <a class="nav-cta" href="#" data-nav="home">Start a Project</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer">
+  <a href="#" data-nav="home" class="drawer-link">Home</a>
+  <a href="#" data-nav="services" class="drawer-link">Services</a>
+  <a href="#" data-nav="process" class="drawer-link">Process</a>
+  <a href="#" data-nav="pricing" class="drawer-link">Pricing</a>
+  <a href="#" data-nav="gallery" class="drawer-link">Gallery</a>
+  <a href="#" data-nav="home" class="drawer-cta">Start a Project →</a>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- ════════════════════ HOME ════════════════════ -->
+<section id="home" class="section active dark-section">
+
+  <!-- Ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb orb1"></div>
+    <div class="amb-orb orb2"></div>
+    <div class="amb-orb orb3"></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal" style="--d:0s">
+        <span class="eyebrow-dot"></span>
+        Custom PCB Design Studio &nbsp;·&nbsp; USA-Based &nbsp;·&nbsp; Nashua, NH
+      </div>
+      <h1 class="hero-headline">
+        <span class="headline-line reveal" style="--d:0.08s">Your Gerbers in</span>
+        <span class="headline-line accent-line reveal" style="--d:0.18s"><em>hours,</em> not days.</span>
+      </h1>
+      <p class="hero-sub reveal" style="--d:0.28s">
+        While Fiverr designers take days, TraceWorks delivers IPC-2221 compliant,
+        DRC-verified Gerber files the same day — fixed price, zero back-and-forth.
+      </p>
+      <div class="hero-stats reveal" style="--d:0.38s">
+        <div class="stat">
+          <span class="stat-num" data-count="12" data-prefix="&lt;" data-suffix="hr">&lt;12hr</span>
+          <span class="stat-label">Typical delivery<sup>†</sup></span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="24" data-suffix="hr">24hr</span>
+          <span class="stat-label">Quote guaranteed</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="5" data-prefix="$">$5</span>
+          <span class="stat-label">Starting price</span>
+        </div>
+      </div>
+      <p class="hero-footnote reveal" style="--d:0.45s">† Starter & Pro tier with complete spec at submission.</p>
+      <div class="hero-actions reveal" style="--d:0.5s">
+        <a href="#" class="btn-primary" data-nav="pricing">Start a project →</a>
+        <a href="#" class="btn-ghost" data-nav="process">See how it works</a>
+      </div>
+      <div class="tools-strip reveal" style="--d:0.6s">
+        <span class="tools-label">Designed with &amp; built for</span>
+        <div class="tools-badges">
+          <span class="tool-badge hl">KiCad</span>
+          <span class="tool-badge">JLCPCB</span>
+          <span class="tool-badge">PCBWay</span>
+          <span class="tool-badge">IPC-2221</span>
+          <span class="tool-badge">IPC-7351</span>
+          <span class="tool-badge">DigiKey</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" style="--d:0.1s" id="heroVisual">
+      <div class="pcb-wrap" id="pcbWrap">
+        <svg class="pcb-svg" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="pcbGrad" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#1a4d23"/>
+              <stop offset="100%" stop-color="#0a2010"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <pattern id="pcbGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(74,222,128,0.06)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <!-- Board -->
+          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#pcbGrad)" stroke="#2d6b35" stroke-width="2"/>
+          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#pcbGrid)"/>
+          <!-- Mounting holes -->
+          <circle cx="24" cy="24" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="456" cy="24" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="24" cy="336" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="456" cy="336" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+          <!-- Copper traces -->
+          <g stroke="#c9a227" stroke-width="2" fill="none" opacity="0.7">
+            <path d="M 80 80 L 180 80 L 180 160 L 280 160"/>
+            <path d="M 80 120 L 140 120 L 140 200 L 320 200"/>
+            <path d="M 320 80 L 380 80 L 380 180 L 420 180"/>
+            <path d="M 200 220 L 200 290 L 380 290"/>
+            <path d="M 80 240 L 160 240 L 160 290"/>
+            <path d="M 100 160 L 100 200"/>
+            <path d="M 280 100 L 280 160"/>
+            <path d="M 360 120 L 360 180"/>
+          </g>
+          <!-- Top copper layer traces (accent) -->
+          <g stroke="#4ade80" stroke-width="1.5" fill="none" opacity="0.5">
+            <path d="M 80 60 L 400 60"/>
+            <path d="M 80 300 L 420 300"/>
+            <path d="M 50 80 L 50 280"/>
+            <path d="M 430 80 L 430 280"/>
+          </g>
+          <!-- MCU / Large IC -->
+          <rect x="200" y="130" width="80" height="60" rx="3" fill="#1a3a1a" stroke="#4ade80" stroke-width="1.5"/>
+          <text x="240" y="165" fill="#4ade80" font-family="monospace" font-size="9" text-anchor="middle" opacity="0.9">STM32</text>
+          <!-- Pads on MCU -->
+          <g fill="#c9a227">
+            <rect x="196" y="135" width="6" height="4" rx="1"/>
+            <rect x="196" y="145" width="6" height="4" rx="1"/>
+            <rect x="196" y="155" width="6" height="4" rx="1"/>
+            <rect x="196" y="165" width="6" height="4" rx="1"/>
+            <rect x="278" y="135" width="6" height="4" rx="1"/>
+            <rect x="278" y="145" width="6" height="4" rx="1"/>
+            <rect x="278" y="155" width="6" height="4" rx="1"/>
+            <rect x="278" y="165" width="6" height="4" rx="1"/>
+            <rect x="210" y="126" width="4" height="6" rx="1"/>
+            <rect x="225" y="126" width="4" height="6" rx="1"/>
+            <rect x="240" y="126" width="4" height="6" rx="1"/>
+            <rect x="255" y="126" width="4" height="6" rx="1"/>
+            <rect x="210" y="188" width="4" height="6" rx="1"/>
+            <rect x="225" y="188" width="4" height="6" rx="1"/>
+            <rect x="240" y="188" width="4" height="6" rx="1"/>
+            <rect x="255" y="188" width="4" height="6" rx="1"/>
+          </g>
+          <!-- Capacitors -->
+          <g fill="#2d5a2d" stroke="#4ade80" stroke-width="1">
+            <rect x="80" y="70" width="16" height="24" rx="2"/>
+            <rect x="104" y="70" width="16" height="24" rx="2"/>
+            <rect x="80" y="230" width="16" height="24" rx="2"/>
+            <rect x="104" y="230" width="16" height="24" rx="2"/>
+            <rect x="360" y="100" width="16" height="24" rx="2"/>
+            <rect x="384" y="100" width="16" height="24" rx="2"/>
+          </g>
+          <!-- Resistors (SMD) -->
+          <g fill="#1a3a1a" stroke="#c9a227" stroke-width="0.8">
+            <rect x="155" y="78" width="12" height="6" rx="1"/>
+            <rect x="175" y="78" width="12" height="6" rx="1"/>
+            <rect x="310" y="196" width="12" height="6" rx="1"/>
+            <rect x="330" y="196" width="12" height="6" rx="1"/>
+            <rect x="150" y="235" width="12" height="6" rx="1"/>
+          </g>
+          <!-- Connector -->
+          <rect x="340" y="240" width="80" height="24" rx="2" fill="#0f1a0f" stroke="#4ade80" stroke-width="1.2"/>
+          <g fill="#c9a227">
+            <rect x="348" y="248" width="5" height="8" rx="1"/>
+            <rect x="360" y="248" width="5" height="8" rx="1"/>
+            <rect x="372" y="248" width="5" height="8" rx="1"/>
+            <rect x="384" y="248" width="5" height="8" rx="1"/>
+            <rect x="396" y="248" width="5" height="8" rx="1"/>
+            <rect x="408" y="248" width="5" height="8" rx="1"/>
+          </g>
+          <!-- DRC checkmark badge -->
+          <g class="drc-badge">
+            <circle cx="410" cy="50" r="22" fill="#0a2010" stroke="#4ade80" stroke-width="1.5"/>
+            <path d="M 400 50 L 407 58 L 422 42" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="410" y="78" fill="#4ade80" font-family="monospace" font-size="8" text-anchor="middle" opacity="0.8">DRC ✓</text>
+          </g>
+          <!-- Silkscreen labels -->
+          <g fill="white" font-family="monospace" font-size="7" opacity="0.45">
+            <text x="84" y="68">C1</text>
+            <text x="108" y="68">C2</text>
+            <text x="84" y="228">C3</text>
+            <text x="108" y="228">C4</text>
+            <text x="344" y="238">J1</text>
+            <text x="202" y="128">U1</text>
+          </g>
+          <!-- Scan lines overlay -->
+          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#scanLines)" opacity="0.3"/>
+        </svg>
+        <div class="pcb-glow"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><b>KiCad</b> native files</span><span class="dot">·</span>
+      <span><b>1–6 layer</b> boards</span><span class="dot">·</span>
+      <span><b>DRC verified</b> outputs</span><span class="dot">·</span>
+      <span><b>JLC / PCBWay</b> ready</span><span class="dot">·</span>
+      <span><b>Gerber + BOM</b> delivery</span><span class="dot">·</span>
+      <span><b>48-hr</b> express available</span><span class="dot">·</span>
+      <span><b>Fixed-price</b> quotes</span><span class="dot">·</span>
+      <span><b>RF · Power · Mixed-signal</b></span><span class="dot">·</span>
+      <span><b>KiCad</b> native files</span><span class="dot">·</span>
+      <span><b>1–6 layer</b> boards</span><span class="dot">·</span>
+      <span><b>DRC verified</b> outputs</span><span class="dot">·</span>
+      <span><b>JLC / PCBWay</b> ready</span><span class="dot">·</span>
+      <span><b>Gerber + BOM</b> delivery</span><span class="dot">·</span>
+      <span><b>48-hr</b> express available</span><span class="dot">·</span>
+      <span><b>Fixed-price</b> quotes</span><span class="dot">·</span>
+      <span><b>RF · Power · Mixed-signal</b></span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- Light section: tiers + projects -->
+  <div class="light-panel">
+    <div class="container">
+
+      <div class="section-label reveal">Service tiers</div>
+      <div class="tiers-grid">
+        <div class="tier-card reveal" style="--d:0.05s">
+          <div class="tier-name">Starter</div>
+          <div class="tier-price">Starting at <span>$5</span></div>
+          <p class="tier-desc">Simple 1–2 layer boards. Great for breakouts, sensor modules, and hobby projects.</p>
+          <ul class="tier-feats">
+            <li>Up to 50 components</li>
+            <li>1–2 copper layers</li>
+            <li>1 schematic review</li>
+            <li>5–7 business day turnaround</li>
+            <li>Gerber + drill files + BOM</li>
+            <li>1 revision round</li>
+          </ul>
+        </div>
+        <div class="tier-card featured reveal" style="--d:0.15s">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-name">Pro</div>
+          <div class="tier-price">Starting at <span>$15</span></div>
+          <p class="tier-desc">2–4 layer mixed-signal boards. Motor controllers, microcontrollers, audio, IoT.</p>
+          <ul class="tier-feats">
+            <li>Up to 150 components</li>
+            <li>2–4 copper layers</li>
+            <li>Requirements call included</li>
+            <li>3–5 business day turnaround</li>
+            <li>Gerber + BOM + pick-and-place CSV</li>
+            <li>2 revision rounds</li>
+          </ul>
+        </div>
+        <div class="tier-card reveal" style="--d:0.25s">
+          <div class="tier-name">Complex</div>
+          <div class="tier-price"><span>$40+</span></div>
+          <p class="tier-desc">4–6 layer boards. RF, high-current power, HDI, impedance-controlled designs.</p>
+          <ul class="tier-feats">
+            <li>Unlimited component count</li>
+            <li>4–6 copper layers</li>
+            <li>Dedicated design sessions</li>
+            <li>Custom timeline</li>
+            <li>Full design package</li>
+            <li>3 revision rounds</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-label reveal" style="margin-top:4rem">Featured projects</div>
+      <div class="projects-grid">
+        <div class="project-card reveal" style="--d:0.05s">
+          <div class="project-img" style="background:linear-gradient(135deg,#0d2010,#1a4d23)">
+            <img src="assets/motorcontrollerboard.png" alt="Motor Controller Board">
+          </div>
+          <div class="project-body">
+            <div class="project-tag">2-layer · 47 components</div>
+            <div class="project-name">Motor Controller Board</div>
+            <div class="project-desc">Dual brushed DC via L298N, STM32 PWM input, 3S LiPo power path.</div>
+          </div>
+        </div>
+        <div class="project-card reveal" style="--d:0.12s">
+          <div class="project-img pcb-placeholder">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+              <rect x="6" y="6" width="60" height="60" rx="2" stroke="rgba(74,222,128,0.4)" stroke-width="1.2"/>
+              <rect x="12" y="12" width="22" height="22" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+              <rect x="40" y="12" width="9" height="9" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+              <rect x="54" y="12" width="9" height="9" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+              <rect x="40" y="25" width="23" height="9" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+              <line x1="12" y1="42" x2="60" y2="42" stroke="rgba(74,222,128,0.2)" stroke-width="0.5"/>
+              <rect x="12" y="47" width="48" height="13" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tag">4-layer · 112 components</div>
+            <div class="project-name">IoT Sensor Hub</div>
+            <div class="project-desc">ESP32-S3, BLE/WiFi, 4-layer stackup with dedicated power plane.</div>
+          </div>
+        </div>
+        <div class="project-card reveal" style="--d:0.2s">
+          <div class="project-img pcb-placeholder">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+              <rect x="6" y="6" width="60" height="60" rx="2" stroke="rgba(74,222,128,0.4)" stroke-width="1.2"/>
+              <circle cx="36" cy="32" r="13" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <circle cx="36" cy="32" r="5" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <line x1="36" y1="6" x2="36" y2="19" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="36" y1="45" x2="36" y2="58" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="6" y1="32" x2="23" y2="32" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="49" y1="32" x2="66" y2="32" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <rect x="14" y="52" width="44" height="7" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tag">4-layer · RF · 89 components</div>
+            <div class="project-name">GPS Tracker Module</div>
+            <div class="project-desc">u-blox NEO-M9N, impedance-controlled RF traces, LiPo charge circuit.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="home-cta reveal">
+      <p class="cta-label">Ready to start your board?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section id="services" class="section light-section">
+  <div class="container">
+    <div class="page-eyebrow reveal">Services</div>
+    <h2 class="page-title reveal" style="--d:0.08s">Our Services: Tried Solutions<br>for Every Stage</h2>
+    <p class="page-sub reveal" style="--d:0.16s">A verified, fixed-price workflow for professional PCB delivery</p>
+
+    <div class="services-grid">
+      <div class="svc-card reveal" style="--d:0.05s">
+        <div class="svc-icon">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M10 18h12M10 22h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="30" cy="14" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="svc-badge">FAST TURNAROUND</div>
+        <h3 class="svc-title">Prototyping: Fast Turnaround &amp; Verification</h3>
+        <p class="svc-desc">From schematic to DRC-clean Gerbers in hours. Ideal for first spins and R&D validation before committing to quantity.</p>
+        <div class="svc-specs">
+          <div class="spec-label">Technical Specs</div>
+          <ul>
+            <li>Up to 50 components</li>
+            <li>1–2 layer boards</li>
+            <li>1–2 day turnaround</li>
+            <li>Low-volume</li>
+          </ul>
+        </div>
+        <a href="#" class="svc-link" data-nav="pricing">Get a Prototyping Quote →</a>
+      </div>
+
+      <div class="svc-card reveal" style="--d:0.12s">
+        <div class="svc-icon">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="10" width="20" height="20" rx="1" stroke="currentColor" stroke-width="1.2"/><circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="svc-badge">PRODUCTION GRADE</div>
+        <h3 class="svc-title">Standard Production: Scalable &amp; Reliable</h3>
+        <p class="svc-desc">Multi-layer mixed-signal designs built for manufacturing. JLCPCB and PCBWay DFM rules applied by default.</p>
+        <div class="svc-specs">
+          <div class="spec-label">Technical Specs</div>
+          <ul>
+            <li>4–8 layer boards</li>
+            <li>Up to 150 components</li>
+            <li>3–5 day turnaround</li>
+            <li>Mid-volume</li>
+          </ul>
+        </div>
+        <a href="#" class="svc-link" data-nav="pricing">Get a Production Quote →</a>
+      </div>
+
+      <div class="svc-card reveal" style="--d:0.2s">
+        <div class="svc-icon">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 6v4M20 30v4M6 20h4M30 20h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="20" r="5" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="svc-badge">ADVANCED RF / HDI</div>
+        <h3 class="svc-title">High-Density / RF: Advanced Designs</h3>
+        <p class="svc-desc">Impedance-controlled stackups, differential pairs, HDI microvias, and RF layout for demanding high-speed designs.</p>
+        <div class="svc-specs">
+          <div class="spec-label">Technical Specs</div>
+          <ul>
+            <li>6–12 layer boards</li>
+            <li>Impedance control</li>
+            <li>Track-and-place routing</li>
+            <li>High-speed</li>
+          </ul>
+        </div>
+        <a href="#" class="svc-link" data-nav="pricing">Get a Complex Quote →</a>
+      </div>
+
+      <div class="svc-card reveal" style="--d:0.28s">
+        <div class="svc-icon">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 32l8-12 6 8 4-6 6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="32" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="svc-badge">HIGH-POWER</div>
+        <h3 class="svc-title">High-Density / SF: Advanced Designs</h3>
+        <p class="svc-desc">High-current power stages, thermal management, wide copper pours. Built for motor drivers, inverters, and power converters.</p>
+        <div class="svc-specs">
+          <div class="spec-label">Technical Specs</div>
+          <ul>
+            <li>4–6 layer power planes</li>
+            <li>Heavy copper</li>
+            <li>Thermal simulation</li>
+            <li>IPC-2221 compliant</li>
+          </ul>
+        </div>
+        <a href="#" class="svc-link" data-nav="pricing">Get a Density Quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner reveal">
+    <div class="cta-banner-inner">
+      <p class="cta-banner-text">Ready to start your board?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input dark">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PROCESS ════════════════════ -->
+<section id="process" class="section light-section">
+  <div class="container">
+    <div class="page-eyebrow reveal">Process</div>
+    <h2 class="page-title reveal" style="--d:0.08s">From Concept to Gerber</h2>
+    <p class="page-sub reveal" style="--d:0.16s">A verified, fixed-price workflow for professional PCB delivery</p>
+
+    <div class="process-layout">
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="timeline-line" id="timelineLine"></div>
+        <div class="timeline-step reveal" style="--d:0.05s" data-step="1">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3 class="step-title">Brief</h3>
+            <p class="step-desc">Fill out the intake form with your board purpose, layer count, component count, and deadline — takes about 5 minutes.</p>
+          </div>
+        </div>
+        <div class="timeline-step reveal" style="--d:0.12s" data-step="2">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3 class="step-title">Quote</h3>
+            <p class="step-desc">A clear, itemised fixed quote lands in your inbox within 24 hours. No surprise fees — ever. Pro/Complex tiers require a 50% deposit to start.</p>
+          </div>
+        </div>
+        <div class="timeline-step reveal" style="--d:0.19s" data-step="3">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3 class="step-title">Schematic</h3>
+            <p class="step-desc">We draw the full schematic in KiCad and send you a PDF for review and sign-off. Routing doesn't begin until you approve it.</p>
+          </div>
+        </div>
+        <div class="timeline-step reveal" style="--d:0.26s" data-step="4">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h3 class="step-title">Layout</h3>
+            <p class="step-desc">Full PCB layout routed to JLCPCB/PCBWay design rules. We run DRC, share the 3D render and Gerber preview for your sign-off before export.</p>
+          </div>
+        </div>
+        <div class="timeline-step reveal" style="--d:0.33s" data-step="5">
+          <div class="step-num">05</div>
+          <div class="step-body">
+            <h3 class="step-title">Gerbers</h3>
+            <p class="step-desc">We package and export the complete production file set: Gerbers, drill files, BOM, schematic PDF, pick-and-place CSV, and a 3D render.</p>
+          </div>
+        </div>
+        <div class="timeline-step reveal" style="--d:0.4s" data-step="6">
+          <div class="step-num">06</div>
+          <div class="step-body">
+            <h3 class="step-title">Delivery</h3>
+            <p class="step-desc">Files delivered via a secure link within the hour — or add the $5 fab coordination add-on and we submit directly to JLCPCB or PCBWay on your behalf.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div class="process-right">
+        <div class="quote-card reveal" style="--d:0.2s">
+          <div class="quote-card-header">
+            <span class="quote-eyebrow">Fixed Quote</span>
+            <span class="quote-badge">Pro Tier</span>
+          </div>
+          <div class="quote-project">Motor Drive v2</div>
+          <div class="quote-lines">
+            <div class="quote-line"><span>3-type PCB design</span><span>$25.35</span></div>
+            <div class="quote-line"><span>Express turnaround (37%)</span><span>+$5.25</span></div>
+            <div class="quote-line"><span>Component sourcing</span><span>+$5.00</span></div>
+          </div>
+          <div class="quote-total"><span>Total</span><span>$35.35</span></div>
+          <button class="btn-primary full-w">Accept &amp; Pay 50% Deposit →</button>
+        </div>
+
+        <div class="docs-card reveal" style="--d:0.3s">
+          <div class="docs-title">Verified &amp; Professional Documentation</div>
+          <div class="docs-files">
+            <div class="doc-file gbr">.GBR <span>Gerber</span></div>
+            <div class="doc-file drl">.DRL <span>Drill</span></div>
+            <div class="doc-file bom">.CSV <span>BOM</span></div>
+            <div class="doc-file pdf">.PDF <span>Schematic</span></div>
+            <div class="doc-file png">.PNG <span>3D Render</span></div>
+            <div class="doc-file cpl">.CSV <span>Pick &amp; Place</span></div>
+          </div>
+          <div class="docs-meta">DRC clean · JLCPCB ready · Secure delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner reveal">
+    <div class="cta-banner-inner">
+      <p class="cta-banner-text">Ready to start your board?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input dark">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PRICING ════════════════════ -->
+<section id="pricing" class="section light-section">
+  <div class="container">
+    <div class="page-eyebrow reveal">Pricing</div>
+    <h2 class="page-title reveal" style="--d:0.08s">TraceWorks Service Tiers<br>and Deliverables</h2>
+    <p class="page-sub reveal" style="--d:0.16s">Fast, verified, and high-quality PCB design delivery</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal" style="--d:0.05s">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">$5 <span class="pricing-freq">starting</span></div>
+        <p class="pricing-desc">Simple 1–2 layer boards. Great for breakouts and hobby projects.</p>
+        <ul class="pricing-feats">
+          <li>1–2 layer boards</li>
+          <li>Up to 50 components</li>
+          <li>1 schematic review</li>
+          <li>5–7 business days</li>
+          <li>Gerber + drill + BOM</li>
+          <li>1 revision round</li>
+        </ul>
+        <a href="mailto:Quote@traceworkspcb.com" class="btn-outline full-w">Get a Quote →</a>
+      </div>
+
+      <div class="pricing-card featured reveal" style="--d:0.15s">
+        <div class="pricing-popular">★ MOST POPULAR</div>
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">$15 <span class="pricing-freq">starting</span></div>
+        <p class="pricing-desc">2–4 layer mixed-signal boards. Motor controllers, IoT, microcontrollers.</p>
+        <ul class="pricing-feats">
+          <li>2–4 layer boards</li>
+          <li>Up to 150 components</li>
+          <li>Requirements call</li>
+          <li>3–5 business days</li>
+          <li>Gerber + BOM + CPL</li>
+          <li>2 revision rounds</li>
+        </ul>
+        <a href="mailto:Quote@traceworkspcb.com" class="btn-primary full-w">Get a Quote →</a>
+      </div>
+
+      <div class="pricing-card reveal" style="--d:0.25s">
+        <div class="pricing-name">Complex</div>
+        <div class="pricing-price">$40<span class="pricing-freq">+</span></div>
+        <p class="pricing-desc">4–6 layer RF, HDI, high-current power, impedance-controlled designs.</p>
+        <ul class="pricing-feats">
+          <li>4–6 layer boards</li>
+          <li>Unlimited components</li>
+          <li>Dedicated sessions</li>
+          <li>Custom timeline</li>
+          <li>Full design package</li>
+          <li>3 revision rounds</li>
+        </ul>
+        <a href="mailto:Quote@traceworkspcb.com" class="btn-outline full-w">Get a Quote →</a>
+      </div>
+    </div>
+
+    <div class="section-label reveal" style="margin-top:4rem">What you receive</div>
+    <div class="deliverables-grid">
+      <div class="deliv reveal" style="--d:0.04s">
+        <div class="deliv-icon gbr-icon">GBR</div>
+        <div class="deliv-name">Gerber files (.gbr)</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.08s">
+        <div class="deliv-icon drl-icon">DRL</div>
+        <div class="deliv-name">Excellon drill files (.drl)</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.12s">
+        <div class="deliv-icon bom-icon">BOM</div>
+        <div class="deliv-name">Bill of materials (BOM)</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.16s">
+        <div class="deliv-icon cpl-icon">CPL</div>
+        <div class="deliv-name">Pick-and-place (CPL)</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.20s">
+        <div class="deliv-icon pdf-icon">PDF</div>
+        <div class="deliv-name">Schematic PDF</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.24s">
+        <div class="deliv-icon d3-icon">3D</div>
+        <div class="deliv-name">3D board model</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.28s">
+        <div class="deliv-icon src-icon">SRC</div>
+        <div class="deliv-name">Component sourcing sheet</div>
+      </div>
+      <div class="deliv reveal" style="--d:0.32s">
+        <div class="deliv-icon chk-icon">✓</div>
+        <div class="deliv-name">Active lifecycle check</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner reveal">
+    <div class="cta-banner-inner">
+      <p class="cta-banner-text">Ready to start your board?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input dark">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ GALLERY ════════════════════ -->
+<section id="gallery" class="section dark-section">
+  <div class="gallery-hero">
+    <div class="spotlight-cone"></div>
+    <div class="spotlight-fixture"></div>
+    <div class="container">
+      <div class="page-eyebrow-dark reveal">Gallery</div>
+      <h2 class="page-title-dark reveal" style="--d:0.08s">Your Gerbers in<br><em>hours,</em> not days.</h2>
+      <p class="page-sub-dark reveal" style="--d:0.16s">Production-grade boards delivered to makers, startups, and engineers across the US.</p>
+    </div>
+  </div>
+
+  <div class="gallery-body">
+    <div class="container">
+      <div class="section-label-dark reveal">Featured Projects</div>
+      <div class="gallery-grid">
+        <div class="gallery-card reveal" style="--d:0.05s">
+          <div class="gallery-img" style="background:linear-gradient(135deg,#0d2010,#1a4d23)">
+            <img src="assets/motorcontrollerboard.png" alt="Motor Controller">
+            <span class="gallery-badge">DRC ✓</span>
+          </div>
+          <div class="gallery-body-inner">
+            <div class="gallery-client">TraceWorks · Internal</div>
+            <div class="gallery-name">Motor Controller Board</div>
+            <p class="gallery-desc">Dual brushed DC via L298N, STM32 PWM input, 3S LiPo power path with protection circuitry.</p>
+            <div class="gallery-parts-label">Key components</div>
+            <div class="gallery-parts">
+              <span>L298N</span><span>STM32F103</span><span>TP4056</span><span>DRV8833</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card reveal" style="--d:0.12s">
+          <div class="gallery-img pcb-placeholder-dark">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="8" y="8" width="64" height="64" rx="2" stroke="rgba(74,222,128,0.5)" stroke-width="1.2"/>
+              <rect x="14" y="14" width="24" height="24" rx="1" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <rect x="44" y="14" width="10" height="10" rx="1" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <rect x="58" y="14" width="10" height="10" rx="1" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <rect x="44" y="28" width="24" height="10" rx="1" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+              <line x1="14" y1="46" x2="66" y2="46" stroke="rgba(74,222,128,0.2)" stroke-width="0.5"/>
+              <rect x="14" y="52" width="52" height="14" rx="1" stroke="rgba(74,222,128,0.4)" stroke-width="0.8"/>
+            </svg>
+            <span class="gallery-badge">4-layer</span>
+          </div>
+          <div class="gallery-body-inner">
+            <div class="gallery-client">Client Project · Confidential</div>
+            <div class="gallery-name">IoT Sensor Hub</div>
+            <p class="gallery-desc">ESP32-S3, BLE/WiFi, 4-layer stackup with dedicated power plane and thermal management.</p>
+            <div class="gallery-parts-label">Key components</div>
+            <div class="gallery-parts">
+              <span>ESP32-S3</span><span>BME680</span><span>W5500</span><span>TPS62132</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card reveal" style="--d:0.2s">
+          <div class="gallery-img pcb-placeholder-dark">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="8" y="8" width="64" height="64" rx="2" stroke="rgba(74,222,128,0.5)" stroke-width="1.2"/>
+              <circle cx="40" cy="36" r="14" stroke="rgba(74,222,128,0.5)" stroke-width="0.8"/>
+              <circle cx="40" cy="36" r="6" stroke="rgba(74,222,128,0.5)" stroke-width="0.8"/>
+              <line x1="40" y1="8" x2="40" y2="22" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="40" y1="50" x2="40" y2="64" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="8" y1="36" x2="26" y2="36" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <line x1="54" y1="36" x2="72" y2="36" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+              <rect x="16" y="58" width="48" height="8" rx="1" stroke="rgba(74,222,128,0.3)" stroke-width="0.7"/>
+            </svg>
+            <span class="gallery-badge">RF</span>
+          </div>
+          <div class="gallery-body-inner">
+            <div class="gallery-client">Client Project · Confidential</div>
+            <div class="gallery-name">GPS Tracker Module</div>
+            <p class="gallery-desc">u-blox NEO-M9N, impedance-controlled RF traces, LiPo charge circuit with fuel gauge.</p>
+            <div class="gallery-parts-label">Key components</div>
+            <div class="gallery-parts">
+              <span>NEO-M9N</span><span>MAX17043</span><span>TP4056</span><span>LNA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-submit-bar reveal">
+        <div class="gallery-submit-text">Have a board you'd like featured? Share your project with us after delivery — client approval required for public display.</div>
+        <a href="mailto:Quote@traceworkspcb.com" class="btn-outline-dark">Submit your project →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner dark-cta reveal">
+    <div class="cta-banner-inner">
+      <p class="cta-banner-text">Ready to start your board?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="TraceWorks" class="footer-logo">
+      <span class="footer-name">TraceWorks</span>
+    </div>
+    <div class="footer-links">
+      <a href="#" data-nav="home">Home</a>
+      <a href="#" data-nav="services">Services</a>
+      <a href="#" data-nav="process">Process</a>
+      <a href="#" data-nav="pricing">Pricing</a>
+      <a href="#" data-nav="gallery">Gallery</a>
+      <a href="mailto:Quote@traceworkspcb.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 TraceWorks. Nashua, NH · traceworkspcb.com</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
