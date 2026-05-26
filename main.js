@@ -6,7 +6,7 @@
 'use strict';
 
 /* ── Section Navigation ── */
-const SECTIONS = ['home','services','process','pricing','gallery'];
+const SECTIONS = ['home','services','process','pricing','gallery','preview'];
 
 function showSection(name) {
   if (!SECTIONS.includes(name)) return;
@@ -24,7 +24,7 @@ function showSection(name) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Nav theme
-  const isLight = name !== 'home' && name !== 'gallery';
+  const isLight = name !== 'home' && name !== 'gallery' && name !== 'preview';
   document.getElementById('nav').classList.toggle('light-nav', isLight);
 
   // Reset and re-observe reveals in new section
