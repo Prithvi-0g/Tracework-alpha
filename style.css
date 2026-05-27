@@ -402,6 +402,9 @@ a { text-decoration: none; color: inherit; }
 }
 .tools-badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: .04em;
@@ -411,6 +414,13 @@ a { text-decoration: none; color: inherit; }
   border-radius: 4px;
   color: rgba(245,242,236,0.7);
   transition: border-color 0.15s, color 0.15s;
+}
+.tool-badge img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 .tool-badge:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
 .tool-badge.hl { border-color: var(--accent); color: var(--accent-soft); }
