@@ -108,44 +108,7 @@ function observeReveals() {
 }
 observeReveals();
 
-/* ═══════════════════════════════════════════
-   HERO PCB PARALLAX (Jhey: mouse-reactive)
-   Emil: only responds to pointer, never animates keyboard
-═══════════════════════════════════════════ */
-const heroVisual = document.getElementById('heroVisual');
-const pcbWrap    = document.getElementById('pcbWrap');
-
-if (heroVisual && pcbWrap) {
-  let rafId;
-  let targetX = 0, targetY = 0;
-  let currentX = 0, currentY = 0;
-
-  document.addEventListener('mousemove', e => {
-    const rect = heroVisual.getBoundingClientRect();
-    if (rect.width === 0) return;
-    // Map mouse to -1..1 relative to visual center
-    targetX = ((e.clientX - rect.left - rect.width  / 2) / rect.width)  * 12;
-    targetY = ((e.clientY - rect.top  - rect.height / 2) / rect.height) * 8;
-  });
-
-  function animatePCB() {
-    // Spring interpolation (damping ≈ 0.08 → sluggish, natural)
-    currentX += (targetX - currentX) * 0.06;
-    currentY += (targetY - currentY) * 0.06;
-
-    const tiltX = (-currentY).toFixed(2);
-    const tiltY = (currentX).toFixed(2);
-    pcbWrap.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(0)`;
-
-    rafId = requestAnimationFrame(animatePCB);
-  }
-  animatePCB();
-
-  // Pause when mouse leaves viewport
-  document.addEventListener('mouseleave', () => {
-    targetX = 0; targetY = 0;
-  });
-}
+/* ── Hero PCB: Three.js (see pcb3d.js) ── */
 
 /* ═══════════════════════════════════════════
    STATS COUNTER (Jhey: duration-based, eased)

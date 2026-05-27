@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
@@ -103,117 +104,8 @@
       </div>
     </div>
 
-    <div class="hero-visual reveal" style="--d:0.1s" id="heroVisual">
-      <div class="pcb-wrap" id="pcbWrap">
-        <svg class="pcb-svg" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="pcbGrad" cx="50%" cy="50%" r="60%">
-              <stop offset="0%" stop-color="#1a4d23"/>
-              <stop offset="100%" stop-color="#0a2010"/>
-            </radialGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-            <pattern id="pcbGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(74,222,128,0.06)" stroke-width="0.5"/>
-            </pattern>
-          </defs>
-          <!-- Board -->
-          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#pcbGrad)" stroke="#2d6b35" stroke-width="2"/>
-          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#pcbGrid)"/>
-          <!-- Mounting holes -->
-          <circle cx="24" cy="24" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="456" cy="24" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="24" cy="336" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="456" cy="336" r="6" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
-          <!-- Copper traces -->
-          <g stroke="#c9a227" stroke-width="2" fill="none" opacity="0.7">
-            <path d="M 80 80 L 180 80 L 180 160 L 280 160"/>
-            <path d="M 80 120 L 140 120 L 140 200 L 320 200"/>
-            <path d="M 320 80 L 380 80 L 380 180 L 420 180"/>
-            <path d="M 200 220 L 200 290 L 380 290"/>
-            <path d="M 80 240 L 160 240 L 160 290"/>
-            <path d="M 100 160 L 100 200"/>
-            <path d="M 280 100 L 280 160"/>
-            <path d="M 360 120 L 360 180"/>
-          </g>
-          <!-- Top copper layer traces (accent) -->
-          <g stroke="#4ade80" stroke-width="1.5" fill="none" opacity="0.5">
-            <path d="M 80 60 L 400 60"/>
-            <path d="M 80 300 L 420 300"/>
-            <path d="M 50 80 L 50 280"/>
-            <path d="M 430 80 L 430 280"/>
-          </g>
-          <!-- MCU / Large IC -->
-          <rect x="200" y="130" width="80" height="60" rx="3" fill="#1a3a1a" stroke="#4ade80" stroke-width="1.5"/>
-          <text x="240" y="165" fill="#4ade80" font-family="monospace" font-size="9" text-anchor="middle" opacity="0.9">STM32</text>
-          <!-- Pads on MCU -->
-          <g fill="#c9a227">
-            <rect x="196" y="135" width="6" height="4" rx="1"/>
-            <rect x="196" y="145" width="6" height="4" rx="1"/>
-            <rect x="196" y="155" width="6" height="4" rx="1"/>
-            <rect x="196" y="165" width="6" height="4" rx="1"/>
-            <rect x="278" y="135" width="6" height="4" rx="1"/>
-            <rect x="278" y="145" width="6" height="4" rx="1"/>
-            <rect x="278" y="155" width="6" height="4" rx="1"/>
-            <rect x="278" y="165" width="6" height="4" rx="1"/>
-            <rect x="210" y="126" width="4" height="6" rx="1"/>
-            <rect x="225" y="126" width="4" height="6" rx="1"/>
-            <rect x="240" y="126" width="4" height="6" rx="1"/>
-            <rect x="255" y="126" width="4" height="6" rx="1"/>
-            <rect x="210" y="188" width="4" height="6" rx="1"/>
-            <rect x="225" y="188" width="4" height="6" rx="1"/>
-            <rect x="240" y="188" width="4" height="6" rx="1"/>
-            <rect x="255" y="188" width="4" height="6" rx="1"/>
-          </g>
-          <!-- Capacitors -->
-          <g fill="#2d5a2d" stroke="#4ade80" stroke-width="1">
-            <rect x="80" y="70" width="16" height="24" rx="2"/>
-            <rect x="104" y="70" width="16" height="24" rx="2"/>
-            <rect x="80" y="230" width="16" height="24" rx="2"/>
-            <rect x="104" y="230" width="16" height="24" rx="2"/>
-            <rect x="360" y="100" width="16" height="24" rx="2"/>
-            <rect x="384" y="100" width="16" height="24" rx="2"/>
-          </g>
-          <!-- Resistors (SMD) -->
-          <g fill="#1a3a1a" stroke="#c9a227" stroke-width="0.8">
-            <rect x="155" y="78" width="12" height="6" rx="1"/>
-            <rect x="175" y="78" width="12" height="6" rx="1"/>
-            <rect x="310" y="196" width="12" height="6" rx="1"/>
-            <rect x="330" y="196" width="12" height="6" rx="1"/>
-            <rect x="150" y="235" width="12" height="6" rx="1"/>
-          </g>
-          <!-- Connector -->
-          <rect x="340" y="240" width="80" height="24" rx="2" fill="#0f1a0f" stroke="#4ade80" stroke-width="1.2"/>
-          <g fill="#c9a227">
-            <rect x="348" y="248" width="5" height="8" rx="1"/>
-            <rect x="360" y="248" width="5" height="8" rx="1"/>
-            <rect x="372" y="248" width="5" height="8" rx="1"/>
-            <rect x="384" y="248" width="5" height="8" rx="1"/>
-            <rect x="396" y="248" width="5" height="8" rx="1"/>
-            <rect x="408" y="248" width="5" height="8" rx="1"/>
-          </g>
-          <!-- DRC checkmark badge -->
-          <g class="drc-badge">
-            <circle cx="410" cy="50" r="22" fill="#0a2010" stroke="#4ade80" stroke-width="1.5"/>
-            <path d="M 400 50 L 407 58 L 422 42" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="410" y="78" fill="#4ade80" font-family="monospace" font-size="8" text-anchor="middle" opacity="0.8">DRC ✓</text>
-          </g>
-          <!-- Silkscreen labels -->
-          <g fill="white" font-family="monospace" font-size="7" opacity="0.45">
-            <text x="84" y="68">C1</text>
-            <text x="108" y="68">C2</text>
-            <text x="84" y="228">C3</text>
-            <text x="108" y="228">C4</text>
-            <text x="344" y="238">J1</text>
-            <text x="202" y="128">U1</text>
-          </g>
-          <!-- Scan lines overlay -->
-          <rect x="4" y="4" width="472" height="352" rx="10" fill="url(#scanLines)" opacity="0.3"/>
-        </svg>
-        <div class="pcb-glow"></div>
-      </div>
+    <div class="hero-visual" id="heroVisual">
+      <div id="pcb-container"></div>
     </div>
   </div>
 
@@ -1122,6 +1014,7 @@
   </div>
 </footer>
 
+<script src="pcb3d.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
