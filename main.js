@@ -6,7 +6,7 @@
 'use strict';
 
 /* ── Section Navigation ── */
-const SECTIONS = ['home','services','process','pricing','gallery','preview'];
+const SECTIONS = ['home','services','process','pricing','gallery','kicuddy','preview'];
 
 function showSection(name) {
   if (!SECTIONS.includes(name)) return;
@@ -24,7 +24,7 @@ function showSection(name) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Nav theme
-  const isLight = name !== 'home' && name !== 'gallery' && name !== 'preview';
+  const isLight = name !== 'home' && name !== 'gallery' && name !== 'preview' && name !== 'kicuddy';
   document.getElementById('nav').classList.toggle('light-nav', isLight);
 
   // Reset and re-observe reveals in new section
@@ -39,6 +39,17 @@ function showSection(name) {
       const line = document.getElementById('timelineLine');
       if (line) line.classList.add('drawn');
     }, 300);
+  }
+
+  // KiCuddy: replay terminal animation
+  if (name === 'kicuddy') {
+    setTimeout(() => {
+      const term = document.getElementById('kcTerminal');
+      if (!term) return;
+      term.classList.remove('running');
+      void term.offsetWidth;
+      term.classList.add('running');
+    }, 400);
   }
 
   closeMobileNav();

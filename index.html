@@ -23,6 +23,7 @@
     <a href="#" data-nav="process">Process</a>
     <a href="#" data-nav="pricing">Pricing</a>
     <a href="#" data-nav="gallery">Gallery</a>
+    <a href="#" data-nav="kicuddy">KiCuddy</a>
     <a href="#" data-nav="preview">Preview</a>
   </div>
   <a class="nav-cta" href="#" data-nav="home">Start a Project</a>
@@ -38,6 +39,7 @@
   <a href="#" data-nav="process" class="drawer-link">Process</a>
   <a href="#" data-nav="pricing" class="drawer-link">Pricing</a>
   <a href="#" data-nav="gallery" class="drawer-link">Gallery</a>
+  <a href="#" data-nav="kicuddy" class="drawer-link">KiCuddy</a>
   <a href="#" data-nav="preview" class="drawer-link">Preview</a>
   <a href="#" data-nav="home" class="drawer-cta">Start a Project →</a>
 </div>
@@ -748,6 +750,186 @@
   </div>
 </section>
 
+<!-- ════════════════════ KICUDDY ════════════════════ -->
+<section id="kicuddy" class="section dark-section kc-section">
+
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb orb1"></div>
+    <div class="amb-orb orb2"></div>
+  </div>
+
+  <!-- ── Hero ── -->
+  <div class="kc-hero">
+    <div class="kc-hero-content">
+
+      <div class="kc-logo-lockup reveal">
+        <!-- KiCuddy chip logo -->
+        <div class="kc-logo" aria-label="KiCuddy logo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="kcBg" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#1e1640"/>
+                <stop offset="100%" stop-color="#0a0818"/>
+              </radialGradient>
+              <filter id="kcGlow">
+                <feGaussianBlur stdDeviation="1.5" result="b"/>
+                <feComposite in="SourceGraphic" in2="b" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Chip body -->
+            <rect x="18" y="18" width="64" height="64" rx="9" fill="url(#kcBg)" stroke="#7c3aed" stroke-width="1.8"/>
+            <!-- Left pins -->
+            <g stroke="#4ade80" stroke-width="1.3" stroke-linecap="round">
+              <line x1="1" y1="33" x2="18" y2="33"/><line x1="1" y1="43" x2="18" y2="43"/>
+              <line x1="1" y1="57" x2="18" y2="57"/><line x1="1" y1="67" x2="18" y2="67"/>
+            </g>
+            <g fill="#4ade80">
+              <rect x="0" y="30.5" width="4" height="5" rx="1"/><rect x="0" y="40.5" width="4" height="5" rx="1"/>
+              <rect x="0" y="54.5" width="4" height="5" rx="1"/><rect x="0" y="64.5" width="4" height="5" rx="1"/>
+            </g>
+            <!-- Right pins -->
+            <g stroke="#4ade80" stroke-width="1.3" stroke-linecap="round">
+              <line x1="82" y1="33" x2="99" y2="33"/><line x1="82" y1="43" x2="99" y2="43"/>
+              <line x1="82" y1="57" x2="99" y2="57"/><line x1="82" y1="67" x2="99" y2="67"/>
+            </g>
+            <g fill="#4ade80">
+              <rect x="96" y="30.5" width="4" height="5" rx="1"/><rect x="96" y="40.5" width="4" height="5" rx="1"/>
+              <rect x="96" y="54.5" width="4" height="5" rx="1"/><rect x="96" y="64.5" width="4" height="5" rx="1"/>
+            </g>
+            <!-- Top pins -->
+            <g stroke="#4ade80" stroke-width="1.3" stroke-linecap="round">
+              <line x1="33" y1="1" x2="33" y2="18"/><line x1="50" y1="1" x2="50" y2="18"/>
+              <line x1="67" y1="1" x2="67" y2="18"/>
+            </g>
+            <!-- Bottom pins -->
+            <g stroke="#4ade80" stroke-width="1.3" stroke-linecap="round">
+              <line x1="33" y1="82" x2="33" y2="99"/><line x1="50" y1="82" x2="50" y2="99"/>
+              <line x1="67" y1="82" x2="67" y2="99"/>
+            </g>
+            <!-- Inner die -->
+            <rect x="28" y="28" width="44" height="44" rx="5" fill="rgba(124,58,237,0.15)" stroke="rgba(167,139,250,0.35)" stroke-width="0.8"/>
+            <!-- KC text -->
+            <text x="50" y="44" fill="#a78bfa" font-family="'DM Mono',monospace" font-size="11" font-weight="500" text-anchor="middle" filter="url(#kcGlow)">Ki</text>
+            <text x="50" y="58" fill="#a78bfa" font-family="'DM Mono',monospace" font-size="11" font-weight="500" text-anchor="middle" filter="url(#kcGlow)">Cuddy</text>
+            <!-- AI badge -->
+            <circle cx="75" cy="25" r="6" fill="rgba(34,197,94,0.18)" stroke="#22c55e" stroke-width="1.2"/>
+            <text x="75" y="28.5" fill="#22c55e" font-family="monospace" font-size="6" font-weight="700" text-anchor="middle">AI</text>
+          </svg>
+        </div>
+        <div class="kc-wordmark">
+          <div class="kc-name">KiCuddy</div>
+          <div class="kc-tagline-sm">Powered by Claude</div>
+        </div>
+      </div>
+
+      <h2 class="kc-headline reveal" style="--d:0.1s">
+        Your AI PCB<br><em>design agent.</em>
+      </h2>
+      <p class="kc-sub reveal" style="--d:0.2s">
+        Describe your board in plain English. KiCuddy handles the schematic, layout, DRC, and Gerber export — autonomously, from a single prompt in your Claude CLI.
+      </p>
+      <div class="kc-actions reveal" style="--d:0.28s">
+        <a href="#" class="btn-primary" data-nav="pricing">Get a Design Quote →</a>
+        <div class="kc-cli-pill">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M4 5l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="7" y1="9" x2="10" y2="9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          claude.ai/code
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Terminal demo -->
+    <div class="kc-terminal-wrap reveal" style="--d:0.08s">
+      <div class="kc-terminal" id="kcTerminal">
+        <div class="kc-term-chrome">
+          <div class="chrome-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+          <span class="kc-term-title">kicuddy — bash</span>
+        </div>
+        <div class="kc-term-body">
+          <div class="tl tl-cmd" style="--td:0.4s">$ kicuddy design "STM32 motor controller, L298N, 3S LiPo"</div>
+          <div class="tl tl-blank" style="--td:0.65s">&nbsp;</div>
+          <div class="tl tl-hdr"  style="--td:0.8s"> &nbsp;KiCuddy v1.0 &nbsp;·&nbsp; Powered by Claude</div>
+          <div class="tl tl-div"  style="--td:0.9s">──────────────────────────────────────────</div>
+          <div class="tl tl-blank" style="--td:1.0s">&nbsp;</div>
+          <div class="tl tl-sec"  style="--td:1.2s">▸ Analyzing requirements</div>
+          <div class="tl tl-dat"  style="--td:1.6s">&nbsp; MCU: <span class="tl-val">STM32F103C8T6</span> &nbsp;·&nbsp; Driver: <span class="tl-val">L298N</span> H-bridge</div>
+          <div class="tl tl-dat"  style="--td:2.0s">&nbsp; Power: <span class="tl-val">3S LiPo</span> + AMS1117 &nbsp;·&nbsp; Layers: <span class="tl-val">2</span> &nbsp;·&nbsp; ~47 components</div>
+          <div class="tl tl-blank" style="--td:2.3s">&nbsp;</div>
+          <div class="tl tl-sec"  style="--td:2.5s">▸ Generating schematic &nbsp;···&nbsp; KiCad 8</div>
+          <div class="tl tl-ok"   style="--td:3.1s">&nbsp; ERC passed &nbsp;·&nbsp; 0 errors &nbsp;·&nbsp; 0 warnings &nbsp;✓</div>
+          <div class="tl tl-blank" style="--td:3.4s">&nbsp;</div>
+          <div class="tl tl-sec"  style="--td:3.6s">▸ Routing PCB layout</div>
+          <div class="tl tl-ok"   style="--td:4.2s">&nbsp; DRC clean &nbsp;·&nbsp; JLCPCB rules ✓ &nbsp;·&nbsp; IPC-2221 ✓</div>
+          <div class="tl tl-blank" style="--td:4.5s">&nbsp;</div>
+          <div class="tl tl-sec"  style="--td:4.7s">▸ Exporting deliverables</div>
+          <div class="tl tl-dat"  style="--td:5.2s">&nbsp; Gerbers / Drill / BOM / CPL / 3D render</div>
+          <div class="tl tl-blank" style="--td:5.5s">&nbsp;</div>
+          <div class="tl tl-done" style="--td:5.8s">✓ &nbsp;Motor_Controller_v1.zip &nbsp;──&nbsp; ready for JLCPCB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Capabilities ── -->
+  <div class="container kc-caps-section">
+    <div class="section-label-dark reveal">What KiCuddy can do</div>
+    <div class="kc-caps-grid">
+      <div class="kc-cap reveal" style="--d:0.04s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M10 10h5M10 16h8M10 22h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="22" cy="10" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="kc-cap-title">Schematic Design</div>
+        <div class="kc-cap-desc">Full KiCad 8 schematics from a text description — power tree, MCU, passives, and connectors.</div>
+      </div>
+      <div class="kc-cap reveal" style="--d:0.09s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="3" stroke="currentColor" stroke-width="1.4"/><rect x="10" y="10" width="12" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="kc-cap-title">PCB Layout &amp; Routing</div>
+        <div class="kc-cap-desc">Automated placement and trace routing with DFM rules for JLCPCB and PCBWay applied by default.</div>
+      </div>
+      <div class="kc-cap reveal" style="--d:0.14s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M8 24l5-8 4 6 3-5 4 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+        <div class="kc-cap-title">DRC / ERC Verification</div>
+        <div class="kc-cap-desc">Runs design rule checks and electrical rule checks — zero-error Gerbers guaranteed before export.</div>
+      </div>
+      <div class="kc-cap reveal" style="--d:0.19s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M10 6H8a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="10" y="4" width="12" height="5" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 14h8M10 18h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="kc-cap-title">BOM &amp; Gerber Export</div>
+        <div class="kc-cap-desc">Complete production package: Gerbers, drill files, BOM, pick-and-place CSV, and a 3D render.</div>
+      </div>
+      <div class="kc-cap reveal" style="--d:0.24s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M16 23v4M5 16h4M23 16h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="kc-cap-title">RF &amp; Multi-layer</div>
+        <div class="kc-cap-desc">1–6 layer stackups, impedance-controlled traces, differential pairs, and HDI via support.</div>
+      </div>
+      <div class="kc-cap reveal" style="--d:0.29s">
+        <div class="kc-cap-icon">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="8" width="26" height="16" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M9 14l3 4 3-6 3 4 3-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="kc-cap-title">Claude CLI Native</div>
+        <div class="kc-cap-desc">Runs as an agent inside Claude Code — invoke it with a single prompt from your terminal.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner dark-cta reveal" style="margin-top:0">
+    <div class="cta-banner-inner">
+      <p class="cta-banner-text">Ready to try KiCuddy?</p>
+      <form class="cta-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" class="cta-input">
+        <button class="btn-primary" type="submit">Get Started →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════════════ PREVIEW ════════════════════ -->
 <section id="preview" class="section dark-section">
 
@@ -932,6 +1114,7 @@
       <a href="#" data-nav="process">Process</a>
       <a href="#" data-nav="pricing">Pricing</a>
       <a href="#" data-nav="gallery">Gallery</a>
+      <a href="#" data-nav="kicuddy">KiCuddy</a>
       <a href="#" data-nav="preview">Preview</a>
       <a href="mailto:Quote@traceworkspcb.com">Contact</a>
     </div>
