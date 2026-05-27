@@ -1010,9 +1010,75 @@
       <a href="#" data-nav="preview">Preview</a>
       <a href="mailto:Quote@traceworkspcb.com">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 TraceWorks. Nashua, NH · traceworkspcb.com</div>
+    <div class="footer-copy">
+      © 2025 TraceWorks. Nashua, NH · traceworkspcb.com
+      <span class="footer-dot">·</span>
+      <button class="footer-privacy-btn" id="openPrivacy">Privacy Policy</button>
+    </div>
   </div>
 </footer>
+
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="privacy-overlay" id="privacyOverlay" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+  <div class="privacy-modal">
+    <div class="privacy-header">
+      <div>
+        <div class="privacy-eyebrow">Legal</div>
+        <h2 class="privacy-title">Privacy Policy</h2>
+      </div>
+      <button class="privacy-close" id="closePrivacy" aria-label="Close privacy policy">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="privacy-body">
+      <p class="privacy-updated">Last updated: May 27, 2025</p>
+
+      <p>TraceWorks ("we", "us", or "our") operates traceworkspcb.com. This policy explains what information we collect, how we use it, and your choices regarding that information.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p><strong>Information you provide.</strong> When you submit a quote request or contact form, we collect your email address and any project details you include. We do not collect payment information directly — deposits are processed through Stripe's secure platform.</p>
+      <p><strong>Usage data.</strong> We use Vercel Analytics to collect anonymous, aggregate data about page visits (page views, referrer, browser type). This data contains no personally identifiable information and is used solely to improve the site.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <ul>
+        <li>To respond to quote requests and project inquiries</li>
+        <li>To deliver project files and communicate about your order</li>
+        <li>To improve our website and services</li>
+        <li>We do not sell, rent, or share your personal information with third parties for marketing purposes</li>
+      </ul>
+
+      <h3>3. Third-Party Services</h3>
+      <p>We use the following third-party services, each governed by their own privacy policies:</p>
+      <ul>
+        <li><strong>Formsubmit.co</strong> — processes contact and quote form submissions</li>
+        <li><strong>Stripe</strong> — handles deposit payments securely. We never see or store your card details</li>
+        <li><strong>Vercel</strong> — hosts this website and provides anonymous analytics</li>
+        <li><strong>Google Fonts</strong> — serves web fonts (DM Serif Display, DM Mono, DM Sans)</li>
+      </ul>
+
+      <h3>4. Cookies</h3>
+      <p>This site does not use tracking or advertising cookies. Vercel may set a minimal session cookie for infrastructure purposes. You can disable cookies in your browser settings without affecting your ability to use the site.</p>
+
+      <h3>5. Data Retention</h3>
+      <p>Email correspondence and project details are retained for as long as necessary to fulfil your order and comply with applicable law, typically no longer than 2 years after project completion.</p>
+
+      <h3>6. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of any personal data we hold about you. To make a request, email us at <a href="mailto:Quote@traceworkspcb.com">Quote@traceworkspcb.com</a>. We will respond within 30 days.</p>
+
+      <h3>7. Children's Privacy</h3>
+      <p>This site is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+
+      <h3>8. Changes to This Policy</h3>
+      <p>We may update this policy from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+
+      <h3>9. Contact</h3>
+      <p>Questions about this policy? Reach us at <a href="mailto:Quote@traceworkspcb.com">Quote@traceworkspcb.com</a> or by mail at TraceWorks, Nashua, NH, USA.</p>
+    </div>
+  </div>
+</div>
 
 <script src="pcb3d.js"></script>
 <script src="main.js"></script>

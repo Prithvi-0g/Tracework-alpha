@@ -296,4 +296,30 @@ document.querySelectorAll('.cta-form').forEach(form => {
   });
 });
 
+/* ═══════════════════════════════════════════
+   PRIVACY POLICY MODAL
+═══════════════════════════════════════════ */
+const privacyOverlay = document.getElementById('privacyOverlay');
+const openPrivacyBtn = document.getElementById('openPrivacy');
+const closePrivacyBtn = document.getElementById('closePrivacy');
+
+function openPrivacy() {
+  privacyOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrivacy() {
+  privacyOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+if (openPrivacyBtn)  openPrivacyBtn.addEventListener('click', openPrivacy);
+if (closePrivacyBtn) closePrivacyBtn.addEventListener('click', closePrivacy);
+if (privacyOverlay)  privacyOverlay.addEventListener('click', e => {
+  if (e.target === privacyOverlay) closePrivacy();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && privacyOverlay?.classList.contains('open')) closePrivacy();
+});
+
 console.log('%cTraceWorks Alpha — PCB Design Studio', 'font-family:monospace;color:#7c3aed;font-size:13px');
