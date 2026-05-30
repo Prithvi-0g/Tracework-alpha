@@ -422,7 +422,6 @@ a { text-decoration: none; color: inherit; }
   border-radius: 2px;
   flex-shrink: 0;
 }
-.tool-badge:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
 .tool-badge.hl { border-color: var(--accent); color: var(--accent-soft); }
 
 /* Hero PCB visual — Three.js canvas container */
