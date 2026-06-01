@@ -6,7 +6,7 @@
 'use strict';
 
 /* ── Section Navigation ── */
-const SECTIONS = ['home','services','process','pricing','gallery','kicuddy','preview'];
+const SECTIONS = ['home','services','process','pricing','kicuddy','preview'];
 
 function showSection(name) {
   if (!SECTIONS.includes(name)) return;
@@ -24,7 +24,7 @@ function showSection(name) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Nav theme
-  const isLight = name !== 'home' && name !== 'gallery' && name !== 'preview' && name !== 'kicuddy';
+  const isLight = name !== 'home' && name !== 'preview' && name !== 'kicuddy';
   document.getElementById('nav').classList.toggle('light-nav', isLight);
 
   // Reset and re-observe reveals in new section
@@ -264,12 +264,16 @@ document.addEventListener('keydown', e => {
     const next = document.getElementById(SECTIONS[idx + 1]);
     cur.classList.remove('active');
     next.classList.add('active');
+    const isLight = next.id !== 'home' && next.id !== 'preview' && next.id !== 'kicuddy';
+    document.getElementById('nav').classList.toggle('light-nav', isLight);
     window.scrollTo(0, 0);
   }
   if (e.key === 'ArrowLeft' && idx > 0) {
     const prev = document.getElementById(SECTIONS[idx - 1]);
     cur.classList.remove('active');
     prev.classList.add('active');
+    const isLight = prev.id !== 'home' && prev.id !== 'preview' && prev.id !== 'kicuddy';
+    document.getElementById('nav').classList.toggle('light-nav', isLight);
     window.scrollTo(0, 0);
   }
 });
@@ -321,5 +325,204 @@ if (privacyOverlay)  privacyOverlay.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && privacyOverlay?.classList.contains('open')) closePrivacy();
 });
+
+/* ═══════════════════════════════════════════
+   TRACEWORKS LIVE ROUTING CANVAS
+   Lightweight native canvas — no animation library
+═══════════════════════════════════════════ */
+const routeCanvas = document.getElementById('routeCanvas');
+const netCountEl = document.getElementById('routeNetCount');
+const viaCountEl = document.getElementById('routeViaCount');
+const drcStateEl = document.getElementById('routeDrcState');
+
+if (routeCanvas) {
+  const ctx = routeCanvas.getContext('2d', { alpha: true });
+  const routeState = {
+    w: 0,
+    h: 0,
+    dpr: Math.min(window.devicePixelRatio || 1, 2),
+    mouseX: 0,
+    mouseY: 0,
+    lastMetricTick: 0,
+    frame: 0
+  };
+
+  const components = [
+    { x: 0.18, y: 0.26, w: 0.14, h: 0.10, label: 'USB' },
+    { x: 0.43, y: 0.42, w: 0.19, h: 0.16, label: 'MCU' },
+    { x: 0.74, y: 0.29, w: 0.14, h: 0.13, label: 'DRV' },
+    { x: 0.74, y: 0.68, w: 0.16, h: 0.11, label: 'OUT' },
+    { x: 0.28, y: 0.72, w: 0.12, h: 0.08, label: 'PWR' }
+  ];
+
+  const routes = [
+    { color: '#5CC8FF', pts: [[0.18,0.26],[0.32,0.26],[0.32,0.42],[0.43,0.42],[0.61,0.42],[0.61,0.29],[0.74,0.29]], speed: 1.0 },
+    { color: '#F59E42', pts: [[0.28,0.72],[0.43,0.72],[0.43,0.58],[0.54,0.58],[0.54,0.68],[0.74,0.68]], speed: 0.82 },
+    { color: '#36F097', pts: [[0.50,0.42],[0.50,0.22],[0.76,0.22],[0.76,0.29]], speed: 1.22 },
+    { color: '#D9E6F2', pts: [[0.23,0.31],[0.23,0.50],[0.43,0.50],[0.62,0.50],[0.62,0.74],[0.82,0.74]], speed: 0.68 },
+    { color: '#5CC8FF', pts: [[0.36,0.72],[0.36,0.62],[0.43,0.62],[0.43,0.46]], speed: 1.36 }
+  ];
+
+  function resizeRouteCanvas() {
+    const rect = routeCanvas.getBoundingClientRect();
+    routeState.w = Math.max(1, rect.width);
+    routeState.h = Math.max(1, rect.height);
+    routeState.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    routeCanvas.width = Math.floor(routeState.w * routeState.dpr);
+    routeCanvas.height = Math.floor(routeState.h * routeState.dpr);
+    ctx.setTransform(routeState.dpr, 0, 0, routeState.dpr, 0, 0);
+  }
+
+  function routeLength(points) {
+    let len = 0;
+    for (let i = 1; i < points.length; i++) {
+      const ax = points[i - 1][0] * routeState.w;
+      const ay = points[i - 1][1] * routeState.h;
+      const bx = points[i][0] * routeState.w;
+      const by = points[i][1] * routeState.h;
+      len += Math.hypot(bx - ax, by - ay);
+    }
+    return len;
+  }
+
+  function drawPartialRoute(points, progress, color) {
+    const total = routeLength(points);
+    let remaining = total * progress;
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = color;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 10;
+    ctx.moveTo(points[0][0] * routeState.w, points[0][1] * routeState.h);
+    for (let i = 1; i < points.length; i++) {
+      const ax = points[i - 1][0] * routeState.w;
+      const ay = points[i - 1][1] * routeState.h;
+      const bx = points[i][0] * routeState.w;
+      const by = points[i][1] * routeState.h;
+      const seg = Math.hypot(bx - ax, by - ay);
+      if (remaining >= seg) {
+        ctx.lineTo(bx, by);
+        remaining -= seg;
+      } else {
+        const t = Math.max(0, remaining / seg);
+        ctx.lineTo(ax + (bx - ax) * t, ay + (by - ay) * t);
+        break;
+      }
+    }
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
+  function drawRouteCanvas(time) {
+    const t = time * 0.001;
+    routeState.frame = requestAnimationFrame(drawRouteCanvas);
+    ctx.clearRect(0, 0, routeState.w, routeState.h);
+
+    ctx.fillStyle = '#0B0F19';
+    ctx.fillRect(0, 0, routeState.w, routeState.h);
+
+    const grid = 28;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.075)';
+    ctx.lineWidth = 1;
+    for (let x = (routeState.mouseX * 8) % grid; x < routeState.w; x += grid) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, routeState.h);
+      ctx.stroke();
+    }
+    for (let y = (routeState.mouseY * 8) % grid; y < routeState.h; y += grid) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(routeState.w, y);
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = 'rgba(54, 240, 151, 0.34)';
+    ctx.fillStyle = 'rgba(13, 42, 32, 0.72)';
+    roundRect(ctx, routeState.w * 0.07, routeState.h * 0.08, routeState.w * 0.86, routeState.h * 0.78, 18);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.strokeStyle = 'rgba(217,230,242,0.24)';
+    ctx.fillStyle = 'rgba(16,22,35,0.92)';
+    components.forEach((c) => {
+      const x = c.x * routeState.w - c.w * routeState.w / 2;
+      const y = c.y * routeState.h - c.h * routeState.h / 2;
+      const w = c.w * routeState.w;
+      const h = c.h * routeState.h;
+      roundRect(ctx, x, y, w, h, 5);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(217,230,242,0.72)';
+      ctx.font = '10px JetBrains Mono, monospace';
+      ctx.fillText(c.label, x + 10, y + 18);
+      ctx.fillStyle = 'rgba(16,22,35,0.92)';
+    });
+
+    routes.forEach((route, i) => {
+      const phase = ((t * route.speed) + i * 0.18) % 1.35;
+      const progress = Math.min(1, phase / 1.0);
+      drawPartialRoute(route.pts, progress, route.color);
+      route.pts.forEach((p, idx) => {
+        if (idx % 2 === 0) {
+          ctx.beginPath();
+          ctx.fillStyle = route.color;
+          ctx.globalAlpha = 0.82;
+          ctx.arc(p[0] * routeState.w, p[1] * routeState.h, 4, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      });
+    });
+
+    if (time - routeState.lastMetricTick > 900) {
+      routeState.lastMetricTick = time;
+      if (netCountEl) netCountEl.textContent = String(82 + Math.floor((Math.sin(t) + 1) * 3)).padStart(3, '0');
+      if (viaCountEl) viaCountEl.textContent = String(17 + Math.floor((Math.cos(t * 0.8) + 1) * 2)).padStart(3, '0');
+      if (drcStateEl) drcStateEl.textContent = Math.sin(t * 0.7) > -0.88 ? 'PASS' : 'SCAN';
+    }
+  }
+
+  function roundRect(context, x, y, w, h, r) {
+    const radius = Math.min(r, w / 2, h / 2);
+    context.beginPath();
+    context.moveTo(x + radius, y);
+    context.arcTo(x + w, y, x + w, y + h, radius);
+    context.arcTo(x + w, y + h, x, y + h, radius);
+    context.arcTo(x, y + h, x, y, radius);
+    context.arcTo(x, y, x + w, y, radius);
+    context.closePath();
+  }
+
+  routeCanvas.addEventListener('pointermove', (e) => {
+    const rect = routeCanvas.getBoundingClientRect();
+    routeState.mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+    routeState.mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+  });
+  window.addEventListener('resize', resizeRouteCanvas, { passive: true });
+  resizeRouteCanvas();
+  routeState.frame = requestAnimationFrame(drawRouteCanvas);
+}
+
+/* ═══════════════════════════════════════════
+   INTERACTIVE EDA VIEWER
+═══════════════════════════════════════════ */
+const viewerShell = document.querySelector('.viewer-shell');
+const viewerTabs = document.querySelectorAll('[data-viewer-mode]');
+if (viewerShell && viewerTabs.length) {
+  viewerTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const mode = tab.dataset.viewerMode;
+      viewerShell.dataset.currentView = mode;
+      viewerTabs.forEach(other => {
+        const isActive = other === tab;
+        other.classList.toggle('active', isActive);
+        other.setAttribute('aria-selected', String(isActive));
+      });
+    });
+  });
+}
 
 console.log('%cTraceWorks Alpha — PCB Design Studio', 'font-family:monospace;color:#7c3aed;font-size:13px');
