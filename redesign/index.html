@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraceWorks — PCB Design Studio</title>
+  <meta name="description" content="Send a schematic and constraints. Get back Gerbers, drill files, BOM, CPL, and a DRC-verified KiCad layout — ready for JLCPCB or PCBWay. Fixed price, same-day turnaround.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to main content</a>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav id="nav" aria-label="Primary navigation">
+  <a href="#" data-nav="home" class="nav-logo" aria-label="TraceWorks home">
+    <img src="../assets/logo.png" alt="">
+    TraceWorks
+  </a>
+
+  <div class="nav-links" role="list">
+    <a href="#" data-nav="services" class="nav-link" role="listitem">Services</a>
+    <a href="#" data-nav="process"  class="nav-link" role="listitem">Process</a>
+    <a href="#" data-nav="pricing"  class="nav-link" role="listitem">Pricing</a>
+    <a href="#" data-nav="kicuddy" class="nav-link" role="listitem">KiCuddy</a>
+  </div>
+
+  <a href="mailto:Quote@traceworkspcb.com" class="nav-cta">Request quote</a>
+
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE DRAWER ─────────────────────────────────────────────── -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a href="#" data-nav="services" class="drawer-link">Services</a>
+  <a href="#" data-nav="process"  class="drawer-link">Process</a>
+  <a href="#" data-nav="pricing"  class="drawer-link">Pricing</a>
+  <a href="#" data-nav="kicuddy" class="drawer-link">KiCuddy</a>
+  <a href="mailto:Quote@traceworkspcb.com" class="drawer-cta">Request quote</a>
+</div>
+
+<main id="main">
+
+  <!-- ──────────────────────────────────────────────────────────────
+       HOME
+  ─────────────────────────────────────────────────────────────────── -->
+  <section id="home" class="section active" aria-label="Hero">
+    <div class="hero">
+
+      <!-- Left column -->
+      <div class="hero-content">
+        <p class="hero-overline reveal" style="--d:0s">PCB Design Studio · Nashua, NH</p>
+
+        <h1 class="hero-headline reveal" style="--d:0.07s">
+          Your Gerbers in<br>
+          <em>hours, not days.</em>
+        </h1>
+
+        <p class="hero-sub reveal" style="--d:0.18s">
+          Send the schematic, board size, and manufacturer target.
+          Get back Gerbers, drill files, BOM, CPL, and a DRC-verified KiCad layout —
+          ready to upload to JLCPCB or PCBWay today.
+        </p>
+
+        <div class="hero-actions reveal" style="--d:0.28s">
+          <a href="mailto:Quote@traceworkspcb.com" class="btn-primary">Start a project →</a>
+          <a href="#" data-nav="process" class="btn-ghost">See how it works</a>
+        </div>
+
+        <div class="tools-strip reveal" style="--d:0.4s">
+          <span class="tools-label">Designed with &amp; built for</span>
+          <div class="tools-badges">
+            <span class="tool-badge hl"><img src="../assets/logo-kicad.png" alt="">KiCad</span>
+            <span class="tool-badge"><img src="../assets/logo-jlcpcb.png" alt="">JLCPCB</span>
+            <span class="tool-badge"><img src="../assets/logo-pcbway.png" alt="">PCBWay</span>
+            <span class="tool-badge">IPC-2221</span>
+            <span class="tool-badge">IPC-7351</span>
+            <span class="tool-badge"><img src="../assets/logo-digikey.png" alt="">DigiKey</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column — PCB photo cluster -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="pcb-stack">
+          <img class="pcb-b pcb-cm5b"    src="../assets/pcb-cm5.png"     alt="" draggable="false">
+          <img class="pcb-b pcb-arduino" src="../assets/pcb-arduino.png" alt="" draggable="false">
+          <img class="pcb-b pcb-cm5"     src="../assets/pcb-cm5.png"     alt="" draggable="false">
+          <img class="pcb-b pcb-cm4"     src="../assets/pcb-cm4.png"     alt="PCB boards" draggable="false">
+        </div>
+      </div>
+
+    </div><!-- /hero -->
+
+    <!-- Evidence strip — within home, below the fold -->
+    <div class="evidence">
+      <h2 class="reveal">A clean handoff, every time.</h2>
+      <p class="reveal" style="--d:0.05s">No mystery gaps. Every project covers the same three phases, regardless of tier.</p>
+
+      <div class="evidence-grid">
+        <div class="evidence-col reveal" style="--d:0.05s">
+          <div class="evidence-seq">01 — Layout</div>
+          <h3>Board design</h3>
+          <ul>
+            <li>Placement by schematic intent and datasheet constraints</li>
+            <li>Routing by net class, copper width, and clearance rules</li>
+            <li>Copper pours and thermal reliefs</li>
+            <li>Mounting holes and board outline</li>
+            <li>Fab layer annotations</li>
+          </ul>
+        </div>
+
+        <div class="evidence-col reveal" style="--d:0.12s">
+          <div class="evidence-seq">02 — Verify</div>
+          <h3>Design review</h3>
+          <ul>
+            <li>DRC pass against manufacturer rules</li>
+            <li>Footprint-to-schematic check</li>
+            <li>Net intent verification</li>
+            <li>Manufacturing limits review</li>
+            <li>Assembly assumption notes</li>
+          </ul>
+        </div>
+
+        <div class="evidence-col reveal" style="--d:0.19s">
+          <div class="evidence-seq">03 — Export</div>
+          <h3>File package</h3>
+          <ul>
+            <li>Gerbers + drill files</li>
+            <li>BOM — DigiKey / JLCPCB ready</li>
+            <li>CPL for pick-and-place</li>
+            <li>Schematic PDF</li>
+            <li>KiCad source files</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       SERVICES
+  ─────────────────────────────────────────────────────────────────── -->
+  <section id="services" class="section" aria-labelledby="services-h">
+    <div class="services-wrap">
+      <div class="section-header reveal">
+        <h2 id="services-h">Automation built for real fab constraints.</h2>
+        <p>Four systems run in sequence on every project. None of them need you to explain what a trace is.</p>
+      </div>
+
+      <div class="modules">
+        <div class="module reveal" style="--d:0s">
+          <div class="module-tag">Placement · Engine</div>
+          <h3>Component intent mapping</h3>
+          <p>Groups ICs, passives, connectors, and power domains by schematic evidence and datasheet constraints.</p>
+        </div>
+        <div class="module reveal" style="--d:0.07s">
+          <div class="module-tag">Routing · DRC</div>
+          <h3>Rule-aware trace paths</h3>
+          <p>Routes by net class, copper width, clearance, drill tables, and assembly constraints against the target fab.</p>
+        </div>
+        <div class="module reveal" style="--d:0.14s">
+          <div class="module-tag">Simulation · Check</div>
+          <h3>Thermal and signal review</h3>
+          <p>Flags current density, return path issues, and impedance-sensitive regions before Gerber export.</p>
+        </div>
+        <div class="module reveal" style="--d:0.21s">
+          <div class="module-tag">BOM · Source</div>
+          <h3>Parts and alternates</h3>
+          <p>Produces DigiKey- and JLCPCB-ready sourcing sheets. Flags lifecycle or stock issues before they reach the fab.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       PROCESS
+  ─────────────────────────────────────────────────────────────────── -->
+  <section id="process" class="section" aria-labelledby="process-h">
+    <div class="process-wrap">
+      <div class="section-header reveal">
+        <h2 id="process-h">Three steps. Intake to fab files.</h2>
+        <p>No dashboards, no back-and-forth. A quote in 24 hours when a complete spec is provided.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="step reveal" style="--d:0s">
+          <div class="step-num">Step 1</div>
+          <h3>Submit constraints</h3>
+          <p>Upload your schematic, target manufacturer, board envelope, and any layer or component restrictions. A quote comes back within 24 hours.</p>
+        </div>
+        <div class="step reveal" style="--d:0.08s">
+          <div class="step-num">Step 2</div>
+          <h3>Layout and review</h3>
+          <p>KiCuddy runs placement, routing, BOM, and DRC. You receive the KiCad file for review before any export is finalized.</p>
+        </div>
+        <div class="step reveal" style="--d:0.16s">
+          <div class="step-num">Step 3</div>
+          <h3>Receive the package</h3>
+          <p>Gerbers, drill files, BOM, CPL, schematic PDF, and KiCad source — ready to upload to JLCPCB or PCBWay today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       PRICING
+  ─────────────────────────────────────────────────────────────────── -->
+  <section id="pricing" class="section" aria-labelledby="pricing-h">
+    <div class="pricing-wrap">
+      <div class="section-header reveal">
+        <h2 id="pricing-h">Fixed price. No surprises.</h2>
+        <p>Quote guaranteed within 24 hours on Starter and Pro tiers when a complete spec is submitted.</p>
+      </div>
+
+      <div class="pricing-tiers reveal" style="--d:0.08s">
+        <div class="tier">
+          <div class="tier-name">Starter</div>
+          <div class="tier-price">$5<sup>+</sup></div>
+          <p class="tier-desc">Small breakouts, sensor modules, and 1–2 layer boards under 100 × 100mm.</p>
+          <ul class="tier-features">
+            <li>1–2 copper layers</li>
+            <li>Up to 50 components</li>
+            <li>Gerbers + drill files</li>
+            <li>BOM</li>
+            <li>Schematic PDF</li>
+          </ul>
+          <a href="mailto:Quote@traceworkspcb.com" class="tier-cta">Request a quote</a>
+        </div>
+
+        <div class="tier featured">
+          <div class="tier-name">Pro</div>
+          <div class="tier-price">$15<sup>+</sup></div>
+          <p class="tier-desc">Production-ready layouts with full assembly output. Most common tier.</p>
+          <ul class="tier-features">
+            <li>2–4 copper layers</li>
+            <li>Up to 150 components</li>
+            <li>Gerbers + drill + CPL</li>
+            <li>DigiKey / JLCPCB BOM</li>
+            <li>KiCad source files</li>
+            <li>DRC review notes</li>
+          </ul>
+          <a href="mailto:Quote@traceworkspcb.com" class="tier-cta">Request a quote</a>
+        </div>
+
+        <div class="tier">
+          <div class="tier-name">Complex</div>
+          <div class="tier-price">$40<sup>+</sup></div>
+          <p class="tier-desc">RF, power electronics, mixed-signal, dense routing, or fab-specific constraints.</p>
+          <ul class="tier-features">
+            <li>Up to 6 copper layers</li>
+            <li>Impedance-controlled traces</li>
+            <li>EMC pre-check</li>
+            <li>Full fabrication package</li>
+            <li>Custom scope quote</li>
+          </ul>
+          <a href="mailto:Quote@traceworkspcb.com" class="tier-cta">Request a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       KICUDDY
+  ─────────────────────────────────────────────────────────────────── -->
+  <section id="kicuddy" class="section" aria-labelledby="kicuddy-h">
+    <div class="kicuddy-wrap">
+
+      <div class="kicuddy-content reveal" style="--d:0s">
+        <img src="../assets/kicuddy-logo.png" alt="KiCuddy" class="kc-logo-img">
+        <h2 id="kicuddy-h">The PCB agent running the bench.</h2>
+        <p>
+          KiCuddy is the Claude-powered AI engine behind every TraceWorks layout.
+          It coordinates schematic verification, footprint checks, routing, DRC cleanup, and
+          export packaging — without needing you to re-explain the constraints.
+        </p>
+      </div>
+
+      <div class="kc-terminal running reveal" id="kcTerminal" style="--d:0.1s" aria-label="KiCuddy terminal output">
+        <span class="tl muted" style="--td:0s">$ kicuddy intake motor_controller.yaml</span>
+        <span class="tl"       style="--td:0.18s">parse: 83 nets · 132 bom lines · 4 layer target</span>
+        <span class="tl copper" style="--td:0.42s">route: diff pair preserved · 18 vias inserted</span>
+        <span class="tl"       style="--td:0.72s">drc: checking clearance, silkscreen, courtyard…</span>
+        <span class="tl green" style="--td:1.05s">✓ pass — gerber export ready</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">
+    <img src="../assets/logo.png" alt="TraceWorks">
+    TraceWorks
+  </div>
+  <div class="footer-links">
+    <a href="mailto:Quote@traceworkspcb.com">Quote@traceworkspcb.com</a>
+    <button id="openPrivacy" type="button">Privacy Policy</button>
+  </div>
+</footer>
+
+<!-- ── PRIVACY MODAL ─────────────────────────────────────────────── -->
+<div class="privacy-overlay" id="privacyOverlay" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+  <div class="privacy-modal">
+    <div class="privacy-modal-header">
+      <div>
+        <h2>Privacy Policy</h2>
+        <p class="modal-meta">Last updated: May 27, 2025</p>
+      </div>
+      <button class="privacy-close" id="closePrivacy" aria-label="Close privacy policy" type="button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="privacy-body">
+      <p>TraceWorks collects only the information needed to respond to quote requests, deliver project files, and operate traceworkspcb.com.</p>
+      <p><strong>What we collect:</strong> Name, email address, and project details you provide when submitting a quote request. No account creation, no persistent logins.</p>
+      <p><strong>How it's used:</strong> Solely to communicate about your project, deliver files, and invoice via Stripe. We do not sell data, run ads, or build behavioral profiles.</p>
+      <p><strong>Third parties:</strong> Stripe (payment), FormSubmit (form relay), Vercel (hosting and analytics). Each operates under their own privacy terms.</p>
+      <p><strong>Cookies:</strong> None set by traceworkspcb.com. Vercel Analytics may set anonymous performance cookies.</p>
+      <p><strong>Your rights:</strong> Request deletion of your data at any time by emailing Quote@traceworkspcb.com.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCRIPT ─────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  const SECTIONS = ['home', 'services', 'process', 'pricing', 'kicuddy'];
+  let current = 'home';
+
+  // ── Section switch ─────────────────────────────────────────────
+  function showSection(id) {
+    if (!SECTIONS.includes(id)) return;
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.nav === id));
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    current = id;
+    closeDrawer();
+    if (id === 'kicuddy') restartTerminal();
+    scheduleReveals(id);
+  }
+
+  // ── Reveals ────────────────────────────────────────────────────
+  function scheduleReveals(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const els = section.querySelectorAll('.reveal:not(.in)');
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.06 });
+    els.forEach(el => io.observe(el));
+  }
+
+  // ── Nav clicks ─────────────────────────────────────────────────
+  document.querySelectorAll('[data-nav]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); showSection(el.dataset.nav); });
+  });
+
+  // ── Hamburger / Drawer ─────────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('drawer');
+  let drawerOpen  = false;
+
+  function closeDrawer() {
+    if (!drawerOpen) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    drawerOpen = false;
+  }
+
+  hamburger.addEventListener('click', () => {
+    drawerOpen = !drawerOpen;
+    drawer.classList.toggle('open', drawerOpen);
+    drawer.setAttribute('aria-hidden', String(!drawerOpen));
+    hamburger.setAttribute('aria-expanded', String(drawerOpen));
+  });
+
+  // ── Keyboard nav (arrow keys) ─────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+    const idx = SECTIONS.indexOf(current);
+    if (e.key === 'ArrowRight' && idx < SECTIONS.length - 1) showSection(SECTIONS[idx + 1]);
+    if (e.key === 'ArrowLeft'  && idx > 0)                   showSection(SECTIONS[idx - 1]);
+    if (e.key === 'Escape') { closePrivacy(); closeDrawer(); }
+  });
+
+  // ── KiCuddy terminal ──────────────────────────────────────────
+  function restartTerminal() {
+    const t = document.getElementById('kcTerminal');
+    if (!t) return;
+    t.classList.remove('running');
+    void t.offsetWidth; // reflow
+    t.classList.add('running');
+  }
+
+  // ── Privacy modal ─────────────────────────────────────────────
+  const overlay = document.getElementById('privacyOverlay');
+
+  function openPrivacy()  { overlay.classList.add('open');    }
+  function closePrivacy() { overlay.classList.remove('open'); }
+
+  document.getElementById('openPrivacy').addEventListener('click', openPrivacy);
+  document.getElementById('closePrivacy').addEventListener('click', closePrivacy);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closePrivacy(); });
+
+  // ── Boot ──────────────────────────────────────────────────────
+  scheduleReveals('home');
+})();
+</script>
+</body>
+</html>
