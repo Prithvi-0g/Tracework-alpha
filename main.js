@@ -6,7 +6,7 @@
 'use strict';
 
 /* ── Section Navigation ── */
-const SECTIONS = ['home','services','process','pricing','kicuddy','preview'];
+const SECTIONS = ['home','services','process','pricing','kicuddy'];
 
 function showSection(name) {
   if (!SECTIONS.includes(name)) return;
@@ -24,7 +24,7 @@ function showSection(name) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Nav theme
-  const isLight = name !== 'home' && name !== 'preview' && name !== 'kicuddy';
+  const isLight = name !== 'home' && name !== 'kicuddy';
   document.getElementById('nav').classList.toggle('light-nav', isLight);
 
   // Reset and re-observe reveals in new section
@@ -264,7 +264,7 @@ document.addEventListener('keydown', e => {
     const next = document.getElementById(SECTIONS[idx + 1]);
     cur.classList.remove('active');
     next.classList.add('active');
-    const isLight = next.id !== 'home' && next.id !== 'preview' && next.id !== 'kicuddy';
+    const isLight = next.id !== 'home' && next.id !== 'kicuddy';
     document.getElementById('nav').classList.toggle('light-nav', isLight);
     window.scrollTo(0, 0);
   }
@@ -272,7 +272,7 @@ document.addEventListener('keydown', e => {
     const prev = document.getElementById(SECTIONS[idx - 1]);
     cur.classList.remove('active');
     prev.classList.add('active');
-    const isLight = prev.id !== 'home' && prev.id !== 'preview' && prev.id !== 'kicuddy';
+    const isLight = prev.id !== 'home' && prev.id !== 'kicuddy';
     document.getElementById('nav').classList.toggle('light-nav', isLight);
     window.scrollTo(0, 0);
   }
